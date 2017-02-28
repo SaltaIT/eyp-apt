@@ -11,6 +11,7 @@ define apt::pin (
                   $label           = undef, # l=
                   $package         = '*',
                   $priority        = '700',
+                  $description     = undef,
                 ) {
 
   if($release!=undef)

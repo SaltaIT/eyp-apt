@@ -1,3 +1,7 @@
+# puppet managed file
+<% if defined?(@description) -%>
+Explanation: <%= @description %>
+<% end -%>
 Package: <%= @package %>
 Pin: release <%= @pin.join('') %>
 Pin-Priority: <%= @priority %>
