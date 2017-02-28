@@ -7,6 +7,8 @@ define apt::ppa (
     path => '/bin:/sbin:/usr/bin:/usr/sbin',
   }
 
+  include ::apt
+
   # ppa:dontblamenrpe/ppa
   if $package_name =~ /^ppa:(.*)$/
   {
@@ -25,6 +27,7 @@ define apt::ppa (
         command => "add-apt-repository ${package_name}",
         unless  => "apt-cache policy | grep ${package_url}",
         notify  => Exec['eyp-apt apt-get update'],
+        require => Package['software-properties-common'],
       }
     }
     default:

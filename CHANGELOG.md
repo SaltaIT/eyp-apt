@@ -3,6 +3,7 @@
 ## 0.1.1
 
 * bugfix: apt-get update
+* added package **software-properties-common** under management
 
 ## 0.1.0
 
