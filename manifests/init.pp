@@ -1,17 +1,8 @@
-class apt(
-                            $manage_package        = true,
-                            $package_ensure        = 'installed',
-                            $manage_service        = true,
-                            $manage_docker_service = true,
-                            $service_ensure        = 'running',
-                            $service_enable        = true,
-                          ) inherits apt::params{
+class apt() inherits apt::params {
 
-  validate_re($package_ensure, [ '^present$', '^installed$', '^absent$', '^purged$', '^held$', '^latest$' ], 'Not a supported package_ensure: present/absent/purged/held/latest')
-
-  class { '::apt::install': } ->
-  class { '::apt::config': } ~>
-  class { '::apt::service': } ->
-  Class['::apt']
-
+  exec { 'eyp-apt apt-get update':
+    command     => 'apt-get update',
+    path        => '/usr/sbin:/usr/bin:/sbin:/bin',
+    refreshonly => true,
+  }
 }

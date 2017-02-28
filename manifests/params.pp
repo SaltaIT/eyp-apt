@@ -5,16 +5,6 @@ class apt::params {
 
   case $::osfamily
   {
-    'redhat':
-    {
-      case $::operatingsystemrelease
-      {
-        /^[5-7].*$/:
-        {
-        }
-        default: { fail("Unsupported RHEL/CentOS version! - ${::operatingsystemrelease}")  }
-      }
-    }
     'Debian':
     {
       case $::operatingsystem
@@ -32,7 +22,16 @@ class apt::params {
             default: { fail("Unsupported Ubuntu version! - ${::operatingsystemrelease}")  }
           }
         }
-        'Debian': { fail('Unsupported')  }
+        'Debian':
+        {
+          case $::operatingsystemrelease
+          {
+            /^[78].*$/:
+            {
+            }
+            default: { fail("Unsupported Debian version! - ${::operatingsystemrelease}")  }
+          }
+        }
         default: { fail('Unsupported Debian flavour!')  }
       }
     }
