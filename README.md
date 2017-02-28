@@ -42,15 +42,21 @@ management, etc.) this is the time to mention it.
 
 ### Setup Requirements
 
-This module requires pluginsync enabled 
+This module requires pluginsync enabled
 
 ### Beginning with apt
 
-The very basic steps needed for a user to get the module up and running.
+```puppet
+apt::ppa { 'ppa:dontblamenrpe/ppa':
+  ensure => 'present',
+}
 
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you may wish to include an additional section here: Upgrading
-(For an example, see http://forge.puppetlabs.com/puppetlabs/firewall).
+apt::pin { 'dontblamenrpe':
+  originator => 'LP-PPA-dontblamenrpe',
+  priority   => '700',
+  require    => Apt::Ppa['ppa:dontblamenrpe/ppa']
+}
+```
 
 ## Usage
 
