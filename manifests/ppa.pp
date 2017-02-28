@@ -3,6 +3,10 @@ define apt::ppa (
                   $package_name = $name,
                 ) {
 
+  Exec {
+    path => '/bin:/sbin:/usr/bin:/usr/sbin',
+  }
+
   # ppa:dontblamenrpe/ppa
   if $package_name =~ /^ppa:(.*)$/
   {
