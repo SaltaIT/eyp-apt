@@ -28,7 +28,8 @@ apt management
 
 ### What apt affects
 
-This module creates files under /etc/apt but not modifies already created files
+* Creates files under /etc/apt but not modifies already created files
+* Manages package **software-properties-common**
 
 ### Setup Requirements
 
