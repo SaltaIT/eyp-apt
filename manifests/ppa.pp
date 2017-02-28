@@ -24,6 +24,7 @@ define apt::ppa (
       exec { "ppa install ${package_name}":
         command => "add-apt-repository ${package_name}",
         unless  => "apt-cache policy | grep ${package_url}",
+        notify  => Exec['eyp-apt apt-get update'],
       }
     }
     default:
