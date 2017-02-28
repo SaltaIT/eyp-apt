@@ -15,7 +15,7 @@ define apt::pin (
 
   if($release!=undef)
   {
-    $release_string="a=${release}"
+    $release_string="a=${release} "
   }
   else
   {
@@ -24,7 +24,7 @@ define apt::pin (
 
   if($codename!=undef)
   {
-    $codename_string="n=${codename}"
+    $codename_string="n=${codename} "
   }
   else
   {
@@ -33,7 +33,7 @@ define apt::pin (
 
   if($release_version!=undef)
   {
-    $release_version_string="v=${release_version}"
+    $release_version_string="v=${release_version} "
   }
   else
   {
@@ -42,7 +42,7 @@ define apt::pin (
 
   if($component!=undef)
   {
-    $component_string="c=${component}"
+    $component_string="c=${component} "
   }
   else
   {
@@ -51,7 +51,7 @@ define apt::pin (
 
   if($originator!=undef)
   {
-    $originator_string="o=${originator}"
+    $originator_string="o=${originator} "
   }
   else
   {
@@ -60,7 +60,7 @@ define apt::pin (
 
   if($label!=undef)
   {
-    $label_string="l=${label}"
+    $label_string="l=${label} "
   }
   else
   {
