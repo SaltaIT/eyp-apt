@@ -41,7 +41,7 @@ This module requires pluginsync enabled
 include ::apt
 ```
 
-Including **::apt** defines a resource to perform an apt-get update only if needed
+Including **::apt** creates a resource to perform an apt-get update only if needed
 
 ## Usage
 
