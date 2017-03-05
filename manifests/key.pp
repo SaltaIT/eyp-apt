@@ -23,7 +23,7 @@ define apt::key (
     }
     'absent':
     {
-      exec { "key import ${key_name}":
+      exec { "key del ${key_name}":
         command => "apt-key del ${key}",
         onlyif  => "bash -c 'apt-key adv --list-keys --with-colons --fingerprint --fixed-list-mode | grep ${key}'",
         path    => '/usr/sbin:/usr/bin:/sbin:/bin',
