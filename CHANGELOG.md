@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.2
+
+* added apt::source
+
 ## 0.1.1
 
 * bugfix: apt-get update

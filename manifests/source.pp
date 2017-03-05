@@ -5,8 +5,6 @@
 # }
 #
 # root@ubuntu16:~# cat /etc/apt/sources.list.d/couchbase.list
-# # This file is managed by Puppet. DO NOT EDIT.
-# # couchbase
 # deb http://packages.couchbase.com/ubuntu xenial xenial/main
 # root@ubuntu16:~#
 #

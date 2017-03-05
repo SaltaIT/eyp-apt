@@ -68,7 +68,6 @@ have some test to check both presence and absence of any feature
 
 ### TODO
 
-* apt::source
 * apt::key
 
 ### Contributing
