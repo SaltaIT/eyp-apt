@@ -21,8 +21,10 @@ apt management
 
 ## Module Description
 
-* ppa installation
-* pin packages
+* ppa installation using **add-apt-repository** (**software-properties-common** is mandatory)
+* pin packages using **preferences.d**
+* keys using **apt-key adv**
+* repos using **sources.list.d**
 
 ## Setup
 
