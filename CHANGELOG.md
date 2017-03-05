@@ -2,7 +2,7 @@
 
 ## 0.1.2
 
-* added apt::source
+* added apt::source and apt::key
 
 ## 0.1.1
 
