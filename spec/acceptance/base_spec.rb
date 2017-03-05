@@ -10,6 +10,28 @@ describe 'apt class' do
 
       class { 'apt': }
 
+      apt::pin { 'dontblamenrpe':
+      	originator => 'LP-PPA-dontblamenrpe',
+      	priority   => '700',
+      }
+
+      apt::ppa { 'ppa:dontblamenrpe/ppa':
+      	ensure => 'present',
+      }
+
+      apt::source { 'couchbase':
+        location => 'http://packages.couchbase.com/ubuntu',
+        release  => $::lsbdistcodename,
+        repos    => "${::lsbdistcodename}/main",
+      }
+
+      apt::key { 'couchbase':
+        ensure => 'absent',
+        key        => '136CD3BA884E3CB0E44E7A5BE905C770CD406E62',
+        key_source => 'http://packages.couchbase.com/ubuntu/couchbase.key',
+      }
+
+
       EOF
 
       # Run it twice and test for idempotency
