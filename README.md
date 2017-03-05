@@ -38,10 +38,26 @@ This module requires pluginsync enabled
 ### Beginning with apt
 
 ```puppet
-apt::ppa { 'ppa:dontblamenrpe/ppa':
-  ensure => 'present',
-}
+include ::apt
+```
 
+Including **::apt** defines a resource to perform an apt-get update only if needed
+
+## Usage
+
+add repo:
+
+```puppet
+apt::source { 'couchbase':
+  location => 'http://packages.couchbase.com/ubuntu',
+  release  => $::lsbdistcodename,
+  repos    => "${::lsbdistcodename}/main",
+}
+```
+
+pin repo by originator:
+
+```puppet
 apt::pin { 'dontblamenrpe':
   originator => 'LP-PPA-dontblamenrpe',
   priority   => '700',
@@ -49,9 +65,22 @@ apt::pin { 'dontblamenrpe':
 }
 ```
 
-## Usage
+manage keys:
 
-TODO
+```puppet
+apt::key { 'couchbase':
+  key        => '136CD3BA884E3CB0E44E7A5BE905C770CD406E62',
+  key_source => 'http://packages.couchbase.com/ubuntu/couchbase.key',
+}
+```
+
+add PPA:
+
+```puppet
+apt::ppa { 'ppa:dontblamenrpe/ppa':
+  ensure => 'present',
+}
+```
 
 ## Reference
 
