@@ -26,7 +26,6 @@ describe 'apt class' do
       }
 
       apt::key { 'couchbase':
-        ensure => 'absent',
         key        => '136CD3BA884E3CB0E44E7A5BE905C770CD406E62',
         key_source => 'http://packages.couchbase.com/ubuntu/couchbase.key',
       }
@@ -37,6 +36,32 @@ describe 'apt class' do
       # Run it twice and test for idempotency
       expect(apply_manifest(pp).exit_code).to_not eq(1)
       expect(apply_manifest(pp).exit_code).to eq(0)
+    end
+
+    # PIN
+    describe file("/etc/apt/preferences.d/dontblamenrpe") do
+      it { should be_file }
+      its(:content) { should include('# puppet managed file') }
+      its(:content) { should include('Package: *') }
+      its(:content) { should include('Pin: release o=LP-PPA-dontblamenrpe') }
+      its(:content) { should include('Pin-Priority: 700') }
+    end
+
+    # PPA
+    #
+    it "check apt::ppa" do
+      expect(shell("apt-cache policy | grep dontblamenrpe").exit_code).to be_zero
+    end
+
+    # source
+    describe file("/etc/apt/sources.list.d/couchbase.list") do
+      it { should be_file }
+      its(:content) { should include('deb http://packages.couchbase.com/ubuntu') }
+    end
+
+    # key
+    it "check apt::key" do
+      expect(shell("apt-key adv --list-keys --with-colons --fingerprint --fixed-list-mode | grep 136CD3BA884E3CB0E44E7A5BE905C770CD406E62").exit_code).to be_zero
     end
 
   end
