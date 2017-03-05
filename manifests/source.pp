@@ -26,6 +26,7 @@ define apt::source(
     group   => 'root',
     mode    => '0644',
     content => template("${module_name}/source.erb"),
+    notify  => Exec['eyp-apt apt-get update'],
   }
 
 }
