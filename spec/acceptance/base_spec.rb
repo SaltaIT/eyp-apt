@@ -15,7 +15,7 @@ describe 'apt class' do
       	priority   => '700',
       }
 
-      apt::ppa { 'ppa:dontblamenrpe/ppa':
+      apt::ppa { 'ppa:phalcon/stable':
       	ensure => 'present',
       }
 
@@ -50,7 +50,7 @@ describe 'apt class' do
     # PPA
     #
     it "check apt::ppa" do
-      expect(shell("apt-cache policy | grep dontblamenrpe").exit_code).to be_zero
+      expect(shell("apt-cache policy | grep phalcon").exit_code).to be_zero
     end
 
     # source
