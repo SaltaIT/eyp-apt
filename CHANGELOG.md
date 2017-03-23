@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.3
+
+* added support for https for **apt::key**
+
 ## 0.1.2
 
 * added **apt::source** and **apt::key**

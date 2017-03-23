@@ -10,15 +10,34 @@ define apt::key (
                 ) {
   include ::apt
 
+  Exec {
+    path => '/usr/sbin:/usr/bin:/sbin:/bin',
+  }
+
   case $ensure
   {
     'present':
     {
       # apt-key adv --fetch-keys http://packages.couchbase.com/ubuntu/couchbase.key
-      exec { "key import ${key_name}":
-        command => "apt-key adv --fetch-keys ${key_source}",
-        unless  => "bash -c 'apt-key adv --list-keys --with-colons --fingerprint --fixed-list-mode | grep ${key}'",
-        path    => '/usr/sbin:/usr/bin:/sbin:/bin',
+      if($key_source=~ /^https/)
+      {
+        exec { 'which wget eyp-apt key':
+          command => 'which wget',
+          unless  => 'which wget',
+        }
+
+        exec { "key import ${key_name}":
+          command => "wget -O - ${key_source} | apt-key add -",
+          unless  => "bash -c 'apt-key adv --list-keys --with-colons --fingerprint --fixed-list-mode | grep ${key}'",
+          require => Exec['which wget eyp-apt key'],
+        }
+      }
+      else
+      {
+        exec { "key import ${key_name}":
+          command => "apt-key adv --fetch-keys ${key_source}",
+          unless  => "bash -c 'apt-key adv --list-keys --with-colons --fingerprint --fixed-list-mode | grep ${key}'",
+        }
       }
     }
     'absent':
@@ -26,7 +45,6 @@ define apt::key (
       exec { "key del ${key_name}":
         command => "apt-key del ${key}",
         onlyif  => "bash -c 'apt-key adv --list-keys --with-colons --fingerprint --fixed-list-mode | grep ${key}'",
-        path    => '/usr/sbin:/usr/bin:/sbin:/bin',
       }
     }
     default:
