@@ -17,6 +17,7 @@ define apt::source(
                     $allow_unsigned = false,
                   ) {
   include ::apt
+  #TODO: puppet 4 canviar a contains
 
   file { "/etc/apt/sources.list.d/${source_name}.list":
     ensure  => $ensure,
