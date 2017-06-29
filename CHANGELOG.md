@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.4
+
+* added cronjob to run apt-get update
+
 ## 0.1.3
 
 * added support for https for **apt::key**
