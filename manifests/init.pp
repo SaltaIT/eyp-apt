@@ -29,7 +29,7 @@ class apt (
 
   cron { 'eyp-apt update':
     ensure   => $cron_ensure,
-    command  => 'apt-get update'
+    command  => 'apt-get update',
     user     => 'root',
     hour     => $update_hour,
     minute   => $update_minute,
