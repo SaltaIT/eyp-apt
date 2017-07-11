@@ -2,6 +2,9 @@
 #   key        => '136CD3BA884E3CB0E44E7A5BE905C770CD406E62',
 #   key_source => 'http://packages.couchbase.com/ubuntu/couchbase.key',
 # }
+#
+# puppet2sitepp @aptkeys
+#
 define apt::key (
                   $key,
                   $key_source,

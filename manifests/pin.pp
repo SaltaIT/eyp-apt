@@ -1,6 +1,9 @@
 # Package: *
 # Pin: release o=LP-PPA-dontblamenrpe
 # Pin-Priority: 700
+#
+# puppet2sitepp @aptpins
+#
 define apt::pin (
                   $pin_name        = $name,
                   $release         = undef, # a=

@@ -8,6 +8,8 @@
 # deb http://packages.couchbase.com/ubuntu xenial xenial/main
 # root@ubuntu16:~#
 #
+# puppet2sitepp @aptsources
+#
 define apt::source(
                     $ensure         = 'present',
                     $location       = undef,

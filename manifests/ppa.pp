@@ -1,3 +1,6 @@
+#
+# puppet2sitepp @aptppas
+#
 define apt::ppa (
                   $ensure       = 'present',
                   $package_name = $name,
