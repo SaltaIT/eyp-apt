@@ -18,8 +18,14 @@ define apt::source(
                     $source_name    = $name,
                     $allow_unsigned = false,
                   ) {
-  include ::apt
-  #TODO: puppet 4 canviar a contains
+  if versioncmp($::puppetversion, '4.0.0') >= 0
+  {
+    contain ::apt
+  }
+  else
+  {
+    include ::apt
+  }
 
   file { "/etc/apt/sources.list.d/${source_name}.list":
     ensure  => $ensure,

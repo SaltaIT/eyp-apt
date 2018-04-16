@@ -10,7 +10,14 @@ define apt::ppa (
     path => '/bin:/sbin:/usr/bin:/usr/sbin',
   }
 
-  include ::apt
+  if versioncmp($::puppetversion, '4.0.0') >= 0
+  {
+    contain ::apt
+  }
+  else
+  {
+    include ::apt
+  }
 
   # ppa:dontblamenrpe/ppa
   if $package_name =~ /^ppa:(.*)$/

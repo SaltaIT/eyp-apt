@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.5
+
+* bugfix: ensure apt-get update is updated in **apt::ppa** and **apt::source**
+
 ## 0.1.4
 
 * added cronjob to run apt-get update
