@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.6
+
+* added support for Ubuntu 18.04
+
 ## 0.1.5
 
 * bugfix: ensure apt-get update is updated in **apt::ppa** and **apt::source**
