@@ -3,6 +3,8 @@ class apt::params {
   $package_name='apt'
   $service_name='apt'
 
+  $unattendedupgrades_package_name = 'unattended-upgrades'
+
   case $::osfamily
   {
     'Debian':

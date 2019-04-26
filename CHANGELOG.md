@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.8
+
+* added **apt::unattendedupgrades**
+
 ## 0.1.7
 
 * added patching related tasks:
