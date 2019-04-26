@@ -1,0 +1,12 @@
+{
+  "puppet_task_version": 1,
+  "supports_noop": false,
+  "input_method": "stdin",
+  "description": "Update packages",
+  "parameters": {
+    "package": {
+      "description": "comma separated list of packages to update",
+      "type": "String[1]"
+    }
+  }
+}

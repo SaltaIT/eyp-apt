@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.1.7
+
+* added patching related tasks:
+  - listpackages
+  - update
+  - checkupdate
+
 ## 0.1.6
 
 * added support for Ubuntu 18.04
