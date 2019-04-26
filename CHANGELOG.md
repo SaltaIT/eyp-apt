@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.10
+
+* bugfix **apt::unattendedupgrades**
+
 ## 0.1.9
 
 * added several options to **apt::unattendedupgrades**
