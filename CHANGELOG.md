@@ -2,7 +2,7 @@
 
 ## 0.1.9
 
-* added several options
+* added several options to **apt::unattendedupgrades**
 
 ## 0.1.8
 
