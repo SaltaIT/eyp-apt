@@ -1,4 +1,4 @@
-class apt::unattendedupgrades::config inherits apt {
+class apt::unattendedupgrades::config inherits apt::unattendedupgrades {
   file { '/etc/apt/apt.conf.d/50unattended-upgrades':
     ensure  => 'present',
     owner   => 'root',
