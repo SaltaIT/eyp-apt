@@ -28,18 +28,18 @@ Unattended-Upgrade::Package-Blacklist {
 // unattended-upgrades will automatically run
 //   dpkg --force-confold --configure -a
 // The default is true, to ensure updates keep getting installed
-//Unattended-Upgrade::AutoFixInterruptedDpkg "false";
+//Unattended-Upgrade::AutoFixInterruptedDpkg "<%= @auto_fix_interrupted_dpkg %>";
 
 // Split the upgrade into the smallest possible chunks so that
 // they can be interrupted with SIGUSR1. This makes the upgrade
 // a bit slower but it has the benefit that shutdown while a upgrade
 // is running is possible (with a small delay)
-//Unattended-Upgrade::MinimalSteps "true";
+//Unattended-Upgrade::MinimalSteps "<%= @minimal_steps %>";
 
 // Install all unattended-upgrades when the machine is shuting down
 // instead of doing it in the background while the machine is running
 // This will (obviously) make shutdown slower
-//Unattended-Upgrade::InstallOnShutdown "true";
+//Unattended-Upgrade::InstallOnShutdown "<%= @install_on_shutdown %>";
 
 // Send email to this address for problems or packages upgrades
 // If empty or unset then no email is sent, make sure that you
@@ -53,7 +53,7 @@ Unattended-Upgrade::Package-Blacklist {
 
 // Do automatic removal of new unused dependencies after the upgrade
 // (equivalent to apt-get autoremove)
-Unattended-Upgrade::Remove-Unused-Dependencies "true";
+Unattended-Upgrade::Remove-Unused-Dependencies "<%= @remove_unused_dependencies %>";
 
 // Automatically reboot *WITHOUT CONFIRMATION*
 //  if the file /var/run/reboot-required is found after the upgrade

@@ -1,8 +1,7 @@
 //
 // puppet managed file
 //
-
-APT::Periodic::Update-Package-Lists "1";
-APT::Periodic::Download-Upgradeable-Packages "1";
-APT::Periodic::AutocleanInterval "7";
-APT::Periodic::Unattended-Upgrade "1";
+APT::Periodic::Update-Package-Lists "<%= @update_package_lists %>";
+APT::Periodic::Download-Upgradeable-Packages "<%= @download_upgradeable_packages %>";
+APT::Periodic::AutocleanInterval "<%= @autoclean_interval %>";
+APT::Periodic::Unattended-Upgrade "<%= @unattended_upgrade %>";
