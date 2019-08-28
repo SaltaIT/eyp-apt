@@ -76,6 +76,13 @@ apt::key { 'couchbase':
 }
 ```
 
+Show installed keys:
+
+```
+# apt-key adv --list-keys --with-colons --fingerprint --fixed-list-mode | grep -i grafa
+uid:-::::1485266258::54754BA7A63B8C9E73D8BFCB81140F31DD4C2D55::Grafana <info@grafana.com>:
+```
+
 ### add PPA
 
 ```puppet
