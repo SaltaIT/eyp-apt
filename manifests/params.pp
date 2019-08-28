@@ -25,7 +25,10 @@ class apt::params {
         {
           case $::operatingsystemrelease
           {
-            /^[78].*$/:
+            /^[789].*$/:
+            {
+            }
+            /^10.*$/:
             {
             }
             default: { fail("Unsupported Debian version! - ${::operatingsystemrelease}")  }

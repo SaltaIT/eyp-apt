@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.11
+
+* added support for Debian 7, Debian 8, Debian 9 and Debian 10
+
 ## 0.1.10
 
 * bugfix **apt::unattendedupgrades**
