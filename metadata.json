@@ -1,12 +1,12 @@
 {
   "name": "eyp-apt",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "author": "eyp",
   "summary": "apt management",
   "license": "Apache-2.0",
-  "source": "https://github.com/jordiprats/eyp-apt",
-  "project_page": "https://github.com/jordiprats/eyp-apt",
-  "issues_url": "https://github.com/jordiprats/eyp-apt/issues",
+  "source": "https://github.com/SaltaIT/eyp-apt",
+  "project_page": "https://github.com/SaltaIT/eyp-apt",
+  "issues_url": "https://github.com/SaltaIT/eyp-apt/issues",
   "dependencies": [
     {"name":"puppetlabs/stdlib","version_requirement":">= 1.0.0 < 9.9.9"},
     {"name":"eyp/eyplib","version_requirement":">= 0.1.0 < 0.2.0"}
@@ -18,7 +18,7 @@
     },
     {
       "operatingsystem": "Debian",
-      "operatingsystemrelease": [ "7", "8" ]
+      "operatingsystemrelease": [ "7", "8", "9", "10" ]
     }
   ],
   "requirements": [

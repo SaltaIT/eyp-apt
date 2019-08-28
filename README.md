@@ -47,7 +47,7 @@ Including **::apt** creates a resource to perform an apt-get update only if need
 
 ## Usage
 
-add repo:
+### add repo
 
 ```puppet
 apt::source { 'couchbase':
@@ -57,7 +57,7 @@ apt::source { 'couchbase':
 }
 ```
 
-pin repo by originator:
+### pin repo by originator
 
 ```puppet
 apt::pin { 'dontblamenrpe':
@@ -67,7 +67,7 @@ apt::pin { 'dontblamenrpe':
 }
 ```
 
-manage keys:
+### manage keys
 
 ```puppet
 apt::key { 'couchbase':
@@ -76,7 +76,7 @@ apt::key { 'couchbase':
 }
 ```
 
-add PPA:
+### add PPA
 
 ```puppet
 apt::ppa { 'ppa:dontblamenrpe/ppa':
