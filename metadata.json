@@ -1,6 +1,6 @@
 {
   "name": "eyp-apt",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "author": "eyp",
   "summary": "apt management",
   "license": "Apache-2.0",
@@ -14,7 +14,7 @@
   "operatingsystem_support": [
     {
       "operatingsystem": "Ubuntu",
-      "operatingsystemrelease": [ "14.04", "16.04", "18.04" ]
+      "operatingsystemrelease": [ "14.04", "16.04", "18.04", "20.04" ]
     },
     {
       "operatingsystem": "Debian",
